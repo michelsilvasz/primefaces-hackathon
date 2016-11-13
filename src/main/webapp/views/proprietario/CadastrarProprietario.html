@@ -1,0 +1,39 @@
+<div class="col-md-12">
+<div class="row">
+	<h2 class="text-center"><u>Cadastrar Agente</u></h2>
+</div>
+<div class="row">
+
+</div>
+<br/>
+<div class="row">
+	
+	<form>
+		Nome:
+		<input ng-model="proprietario.nome" class="form-control" />
+		CPF:
+		<input ng-model="proprietario.cpfProprietario" class="form-control"/>
+		Endereco:
+		<input ng-model="proprietario.endereco" class="form-control" />
+		Bairro:
+		<input ng-model="proprietario.bairro" class="form-control" />
+		Cidade:
+		<input ng-model="proprietario.cidade" class="form-control"/>
+		UF:
+		<input ng-model="proprietario.uf" class="form-control" />
+		Sexo:
+		<input ng-model="proprietario.sexo" class="form-control"/>
+		Data de Nascimento:
+		<input ng-model="proprietario.dtNascimento" class="form-control" />
+		DDD:
+		<input ng-model="telefones.ddd" class="form-control" />
+		Numero:
+		<input ng-model="telefones.numero" class="form-control" />
+		
+		
+		<button ng-click="adicionarProprietario(proprietario)" class="btn btn-primary" style="margin-top: 20px;">Adicionar Proprietario</button>
+		<a href="#/" class="btn btn-danger" style="margin-top: 20px;">Cancelar</a>
+	</form>
+	
+</div>
+</div>

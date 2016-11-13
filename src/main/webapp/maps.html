@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+
+      #map {
+        
+        width:600px;
+        height:400px
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+    function initMap() {
+    	  var myLatlng = {lat: -15.866292, lng: -48.031049};
+
+    	  var map = new google.maps.Map(document.getElementById('map'), {
+    	    zoom: 15,
+    	    center: myLatlng
+    	  });
+
+
+
+       	google.maps.event.addListener(map, 'click', function(event) {
+       	   placeMarker(event.latLng);
+       	   console.log(event.latLng.lat());
+       	   console.log(event.latLng.lng());
+       	});
+
+       	function placeMarker(location) {
+       	    var marker = new google.maps.Marker({
+       	        position: location, 
+       	        map: map
+       	    });
+       	}
+    }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm7KunSiYPsy8tyUc3SV0nsvYJYu5nUOg&callback=initMap"
+        async defer>
+    </script>
+  </body>
+</html>

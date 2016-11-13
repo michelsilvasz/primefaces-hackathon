@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm7KunSiYPsy8tyUc3SV0nsvYJYu5nUOg"
+	type="text/javascript">
+	</script>
+
+<h:head>
+</h:head>
+<h:body>
+	<p:growl id="growl" showDetail="true" sticky="true" />
+	<h:form>
+		<h:panelGrid columns="2">
+		
+		Digite a Placa:
+		<p:inputText value="#{infracaoBean.veiculo.placa}" id="placaVeiculo" />
+			<p:commandButton value="Pesquisar"
+				action="#{infracaoBean.buscarPlaca()}" update="donoNome growl" >
+				<f:ajax event="click" execute="placaVeiculo"  />
+			</p:commandButton> 
+			<p:outputLabel value="#{infracaoBean.veiculo.proprietario.nome}"
+				id="donoNome" />
+		
+		
+		Digite CPF do agente:
+		<p:inputText id="agenteCPF" value="#{infracaoBean.cpfAgente}" />
+
+			<p:commandButton action="#{infracaoBean.buscarAgenteID()}"
+				update="agenteNome growl" value="pesquisar" >
+				<f:ajax event="click" execute="agenteCPF" />
+			</p:commandButton>
+			<p:outputLabel value="#{infracoesBean.agente.nome}" id="agenteNome" />
+			
+
+		Tipo de Infracao:
+		<p:inputText
+				value="#{infracaoBean.tipoInfracoes.descricaoTipoInfracao}" />
+		Valor da infracao:
+		<p:inputText value="#{infracaoBean.tipoInfracoes.valor}" />
+		Local da Infraca:
+		<p:inputText
+				value="#{infracaoBean.localInfracao.descricaoLocalInfracao}" />
+		
+		Selecione:
+		 <p:gmap id="gmap" center="-15.866292,-48.031049" zoom="15"
+				type="hybrid" style="width:600px;height:400px"
+				model="#{rectanglesView.rectangleModel}" >
+				<p:ajax event="pointSelect"
+					listener="#{infracaoBean.pontoSelecionado}" update="growl" />
+			</p:gmap>
+		Velocidade Permitida:
+		<p:inputText value="#{infracaoBean.infracao.velocidade}" />
+
+
+
+		</h:panelGrid>
+
+		<p:commandButton action="#{infracaoBean.salvarInfracao()}"
+			value="salvar" />
+	</h:form>
+</h:body>
+</html>

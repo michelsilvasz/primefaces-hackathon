@@ -1,0 +1,36 @@
+<div class="row">
+	<h2>Cadastro de Tipo de Denuncia</h2>
+</div>
+<div class="row">
+	<form class="form-horizontal" ng-submit="cadastrar(tipo)">
+		<div class="form-group">
+			Digite a Placa: 
+			<input type="text" ng-model="veiculo.placa" class="form-control" />
+			<button class="btn btn-success" ng-click="buscarVeiculo(veiculo.placa)">Pesquisar Placa</button>
+			<br>{{veiculoA.modelo.descricaoModelo}} <br>
+			Digite o CPF do	agente: 
+			<input type="text" ng-model="agente.cpf" class="form-control" />
+			<button class="btn btn-success" ng-click="buscarAgente(agente.cpf)">
+			Buscar Agente
+			</button>
+			<br>Agente: {{agenteA.nome}}<br> 
+			
+			Tipo de Infracao: 
+			<input type="text" ng-model="TipoInfracao.descricaoTipoInfracao"
+				class="form-control" /> 
+			Valor da Infracao: 
+			<input type="text" ng-model="TipoInfracao.valor" class="form-control" /> 
+			Local da Infracao: 
+			<input type="text" ng-model="LocalInfracao.descricaoLocalInfracao" class="form-control" />
+			<div id="map"></div>
+			Velocidade Permitida: 
+			<input type="text" ng-model="infracao.velocidade" class="form-control" />
+
+			
+
+			<button class="btn btn-success" ng-click="adicionarInfracao()">Cadastrar</button>
+			<a href="#/" class="btn btn-warning">Cancelar</a>
+		</div>
+		<div class="form-group"></div>
+	</form>
+</div>

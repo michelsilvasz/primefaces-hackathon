@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<h1>Proprietario</h1>
+		<p:panelGrid columns="2">
+		Nome:
+		<p:inputText value="#{proprietarioBean.proprietario.nome}" />
+		CPF:
+		<p:inputText mask="999.999.999-99"
+				value="#{proprietarioBean.proprietario.cpfProprietario}" />
+		Endereco:
+		<p:inputText value="#{proprietarioBean.proprietario.endereco}" />
+		Bairro:
+		<p:inputText value="#{proprietarioBean.proprietario.bairro}" />
+		Cidade:
+		<p:inputText value="#{proprietarioBean.proprietario.cidade}" />
+		UF:
+		<p:selectOneMenu value="#{proprietarioBean.proprietario.uf}">
+				<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+				<f:selectItem itemLabel="Distrito Federal" itemValue="DF" />
+				<f:selectItem itemLabel="Goias" itemValue="GO" />
+				<f:selectItem itemLabel="Sao paulo" itemValue="SP" />
+				<f:selectItem itemLabel="Rio de janeiro" itemValue="RJ" />
+
+			</p:selectOneMenu>
+		Sexo:
+		<p:selectOneRadio value="#{proprietarioBean.proprietario.sexo}">
+				<f:selectItem itemLabel="Masculino" itemValue="masculino" />
+				<f:selectItem itemLabel="Feminino" itemValue="feminino" />
+
+			</p:selectOneRadio>
+
+		Data de Nascimento:
+		<p:calendar value="#{proprietarioBean.proprietario.dtNascimento}">
+				<f:convertDateTime pattern="dd/MM/yyyy" locale="GMT-03:00" />
+			</p:calendar>
+		
+		
+		Tipo de Telefone:
+		<p:selectOneMenu
+				value="#{proprietarioBean.tipoTelefone.descricaoTipoTelefone}">
+				<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+				<f:selectItem itemLabel="Telefone Fixo" itemValue="telefone fixo" />
+				<f:selectItem itemLabel="Celular" itemValue="celular" />
+			</p:selectOneMenu>
+		DDD:
+		<p:inputText value="#{proprietarioBean.telefones.ddd}" />
+		Telefone:
+		<p:inputText mask="9999-9999"
+				value="#{proprietarioBean.telefones.numero}" />
+		</p:panelGrid>
+
+		<p:commandButton value="salvar"
+			action="#{proprietarioBean.salvarProprietario()}" />
+	</h:form>
+</h:body>
+</html>

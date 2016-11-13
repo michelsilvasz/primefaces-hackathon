@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<p:growl id="growl" showDetail="true" sticky="true" />
+	<h:form>
+		<h:panelGrid columns="2">
+		Nome:
+		<p:inputText value="#{agenteBean.agente.nome}" />
+		CPF:
+		<p:inputText value="#{agenteBean.agente.cpf}" />
+		Data de Contratacao:
+		<p:calendar value="#{agenteBean.agente.dtContratacao}">
+				<f:convertDateTime pattern="dd/MM/yyyy" locale="GMT-03:00" />
+			</p:calendar>
+		Tempo de Servico:
+		<p:inputText value="#{agenteBean.agente.tempoServico}" />
+
+		</h:panelGrid>
+
+		<p:commandButton action="#{agenteBean.salvarAgente()}" value="exibir" />
+	</h:form>
+</h:body>
+</html>

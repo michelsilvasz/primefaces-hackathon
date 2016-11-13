@@ -1,0 +1,38 @@
+<div class="col-md-12">
+<div class="row">
+	<h2 class="text-center"><u>Cadastrar Veiculo</u></h2>
+</div>
+<div class="row">
+
+</div>
+<br/>
+<div class="row">
+	
+	<form>
+		Categoria:
+		<input type="text" ng-model="categoria.descricaiCategoria" class="form-control">
+		Modelo:
+		<input type="text" ng-model="modelo.descricaoModelo" class="form-control"/>
+		Placa:
+		<input type="text" ng-model="veiculos.placa" class="form-control"/>
+		Estado:
+		<input type="text" class="form-control" ng-model="veiculos.uf"/>
+		CPF proprietario:
+		<input type="text" ng-model="cpf" class="form-control"/><br>
+		<button ng-click="pesquisarProprietario(cpf)" class="btn btn-success">Pesquisar</button>
+		<br>
+		{{proprietario.nome}}
+		<div style="margin-top: 10px; margin-left: 200px;" >
+		<button class="btn btn-primary" ng-click="adicionarVeiculo()" >Cadastrar</button>
+		<a href="#/" class="btn btn-danger">Cancelar</a>
+		</div>
+		
+		
+		{{modelo.descricaoModelo}}
+		{{veiculo.uf}}
+		
+		
+	</form>
+	
+</div>
+</div>

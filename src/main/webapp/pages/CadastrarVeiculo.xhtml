@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl  showDetail="true" sticky="true" id="msg" />
+		<h1>Veiculo</h1>
+		<p:panelGrid columns="2">
+		CPF proprietario:
+		<p:inputText value="#{veiculoBean.proprietarioCpf}"
+				id="proprietarioCPF"/>
+
+				<p:commandButton value="pesquisar"
+					action="#{veiculoBean.buscarPorID()}" update="proprietarioNome msg">
+					<f:ajax event="click" execute="proprietarioCPF"
+						 />
+				</p:commandButton>
+				<h:outputText value="#{veiculoBean.proprietario.nome}"
+					id="proprietarioNome" />
+		
+		Categoria do veiculo:
+		<p:selectOneMenu value="#{veiculoBean.categoria.descricaiCategoria}">
+					<f:selectItem itemLabel="Caminhao/Caminhonete" itemValue="Caminhao/Caminhonete" />
+					<f:selectItem itemLabel="Passeio" itemValue="Van" />
+					<f:selectItem itemLabel="Van" itemValue="Carro" />
+					<f:selectItem itemLabel="Moto" itemValue="Moto" />
+
+				</p:selectOneMenu>
+		Modelo do veiculo:
+		<p:inputText value="#{veiculoBean.modelo.descricaoModelo}" />
+		
+		Placa:
+		<p:inputText value="#{veiculoBean.veiculo.placa}" />
+		
+		UF:
+		<p:selectOneMenu value="#{veiculoBean.veiculo.uf}">
+					<f:selectItem itemLabel="Distrito Federal" itemValue="DF" />
+					<f:selectItem itemLabel="Goias" itemValue="GO" />
+					<f:selectItem itemLabel="Sao paulo" itemValue="SP" />
+					<f:selectItem itemLabel="Rio de janeiro" itemValue="RJ" />
+
+				</p:selectOneMenu>
+		</p:panelGrid>
+		<p:commandButton value="salvar"
+			action="#{veiculoBean.salvarVeiculo()}" />
+
+	</h:form>
+</h:body>
+</html>
